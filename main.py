@@ -1,8 +1,18 @@
+import os
 board = ["  1", "| 2 |", "3  ", "  4", "| 5 |", "6  ", "  7", "| 8 |", "9  "]
 check = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
+def clear_console():
+    # Clear the terminal screen based on the OS.
+    if os.name == 'nt':
+        os.system('cls')  # Windows
+    else:
+        os.system('clear')  # Unix/Linux
+    # print("FAKE CLEAR")
+
 
 def printboard():
+  clear_console()
   print(board[0], board[1], board[2])
   print(" ----------- ")
   print(board[3], board[4], board[5])
