@@ -1,4 +1,14 @@
 import os
+BLACK  = "\033[30m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+BLUE   = "\033[34m"
+PURPLE = "\033[35m"
+CYAN   = "\033[36m"
+WHITE  = "\033[37m"
+RESET  = "\033[0m"
+
 board = ["  1", "| 2 |", "3  ", "  4", "| 5 |", "6  ", "  7", "| 8 |", "9  "]
 check = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
@@ -20,6 +30,8 @@ def printboard():
   print(board[6], board[7], board[8])
 
 def clear():
+  global board
+  global check
   board = ["  1", "| 2 |", "3  ", "  4", "| 5 |", "6  ", "  7", "| 8 |", "9  "]
   check = [0, 0, 0, 0, 0, 0, 0, 0, 0]
   print("\033[31m"+"\nNEW GAME!"+"\033[0m")
@@ -33,13 +45,13 @@ def x():
     x()
   else:
     if place == 1 or place == 4 or place == 7:
-      board[place] = "| X |"
+      board[place] = BLUE+"| X |"+RESET
       check[place] = 1
     elif place == 0 or place == 3 or place == 6:
-      board[place] = "  X"
+      board[place] = BLUE+"  X"+RESET
       check[place] = 1
     else:
-      board[place] = "X  "
+      board[place] = BLUE+"X  "+RESET
       check[place] = 1
 
 def o():
@@ -51,13 +63,13 @@ def o():
     o()
   else:
     if place == 1 or place == 4 or place == 7:
-      board[place] = "| O |"
+      board[place] = BLUE+"| O |"+RESET
       check[place] = 2
     elif place == 0 or place == 3 or place == 6:
-      board[place] = "  O"
+      board[place] = BLUE+"  O"+RESET
       check[place] = 2
     else:
-      board[place] = "O  "
+      board[place] = BLUE+"O  "+RESET
       check[place] = 2
 
 def xwin():
